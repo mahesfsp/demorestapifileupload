@@ -1,0 +1,480 @@
+{
+	"info": {
+		"_postman_id": "4105b8d9-c415-437b-ae0f-e4252b232587",
+		"name": "Chowkti web services",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				
+				
+				{
+					"name": "/api/auth/signIn",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.globals.set(\"chowktiAuthToken\", pm.response.json().data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mobileNumber\": \"7055778822\",\r\n    \"otpUuid\": \"0b58886c-5724-456a-b500-4f7490012463\",\r\n    \"otp\": \"848823\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{apiBaseUrl}}/api/auth/signIn",
+							"host": [
+								"{{apiBaseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"signIn"
+							]
+						},
+						"description": "Log in a user."
+					},
+					"response": [
+						{
+							"name": "/api/auth/{role}/signIn",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"mobileNumber\": 9804307030,\r\n    \"password\": \"Manish@123\",\r\n    \"role\": \"labour\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{apiBaseUrl}}/api/auth/signIn",
+									"host": [
+										"{{apiBaseUrl}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"signIn"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 03 Mar 2022 09:48:58 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 03 Mar 2022 09:48:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.2"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"token\": \"3|qRkrduh1vPLXHw0OGvhH9yuGIgVbqcrdnzI5aOpX\",\n        \"user\": {\n            \"uuid\": \"6febffb6-9ee8-4b16-a695-4cd4bb47fb79\",\n            \"email\": \"manishparui@hotmail.com\",\n            \"emailVerifiedAt\": null,\n            \"mobileNumber\": \"9804307030\",\n            \"mobileNumberVerifiedAt\": null,\n            \"status\": \"inactive\",\n            \"role\": \"labour\",\n            \"namePrefix\": \"Mr\",\n            \"firstName\": \"Manish\",\n            \"lastName\": \"Parui\",\n            \"formattedName\": \"Parui\",\n            \"dateOfBirth\": null,\n            \"gender\": \"male\",\n            \"avatarFileUuid\": null,\n            \"createdAt\": \"2022-03-03T09:32:23.000000Z\",\n            \"updatedAt\": \"2022-03-03T09:32:23.000000Z\"\n        }\n    }\n}"
+						},
+						{
+							"name": "/api/auth/{role}/signIn",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"mobileNumber\": 9804307030,\r\n    \"password\": \"Manish@12\",\r\n    \"role\": \"labour\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{apiBaseUrl}}/api/auth/signIn",
+									"host": [
+										"{{apiBaseUrl}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"signIn"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 03 Mar 2022 09:49:27 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 03 Mar 2022 09:49:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.2"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": {\n        \"message\": \"Unauthorized\",\n        \"type\": \"error\"\n    }\n}"
+						}
+					]
+				}				
+			]
+		},
+			
+		{
+			"name": "Files",
+			"item": [
+				{
+					"name": "/api/files",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apiBaseUrl}}/api/files?offset=100",
+							"host": [
+								"{{apiBaseUrl}}"
+							],
+							"path": [
+								"api",
+								"files"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/api/files",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{apiBaseUrl}}/api/files?offset=100",
+									"host": [
+										"{{apiBaseUrl}}"
+									],
+									"path": [
+										"api",
+										"files"
+									],
+									"query": [
+										{
+											"key": "offset",
+											"value": "100"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 03 Mar 2022 11:04:19 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 03 Mar 2022 11:04:19 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.2"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"uuid\": \"5aea7f0f-cdd3-4693-9a69-4c055411d94f\",\n            \"name\": null,\n            \"type\": \"image/jpeg\",\n            \"url\": \"http://localhost:8000/storage/files/HIdXYL4SflVrSu5Cs407eOZJWnSm6o8Kwmbvs8Aq.jpg\"\n        },\n        {\n            \"uuid\": \"57390e92-0bfe-47e8-aa66-c3e2faa09ab5\",\n            \"name\": null,\n            \"type\": \"image/png\",\n            \"url\": \"http://localhost:8000/storage/files/g67bYfhJmxC8gj7bIFph4ZiPOpgpi3Oatlqvsni4.png\"\n        }\n    ],\n    \"links\": {\n        \"first\": \"http://localhost:8000/api/files?page=1\",\n        \"last\": \"http://localhost:8000/api/files?page=1\",\n        \"prev\": null,\n        \"next\": null\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"last_page\": 1,\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Previous\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://localhost:8000/api/files?page=1\",\n                \"label\": \"1\",\n                \"active\": true\n            },\n            {\n                \"url\": null,\n                \"label\": \"Next &raquo;\",\n                \"active\": false\n            }\n        ],\n        \"path\": \"http://localhost:8000/api/files\",\n        \"per_page\": \"100\",\n        \"to\": 2,\n        \"total\": 2\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "/api/files",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/Users/manish/Pictures/Screenshot 2021-11-23 at 11.55.15 AM.png"
+								},
+								{
+									"key": "name",
+									"value": "aadhar",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apiBaseUrl}}/api/files",
+							"host": [
+								"{{apiBaseUrl}}"
+							],
+							"path": [
+								"api",
+								"files"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/api/files",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/Users/manish/Pictures/Screenshot 2021-12-13 at 4.01.56 PM.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{apiBaseUrl}}/api/files",
+									"host": [
+										"{{apiBaseUrl}}"
+									],
+									"path": [
+										"api",
+										"files"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 03 Mar 2022 11:03:36 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 03 Mar 2022 11:03:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.2"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"uuid\": \"57390e92-0bfe-47e8-aa66-c3e2faa09ab5\",\n        \"name\": null,\n        \"type\": \"image/png\",\n        \"url\": \"http://localhost:8000/storage/files/g67bYfhJmxC8gj7bIFph4ZiPOpgpi3Oatlqvsni4.png\",\n        \"updated_at\": \"2022-03-03T11:03:36.000000Z\",\n        \"created_at\": \"2022-03-03T11:03:36.000000Z\",\n        \"id\": 2\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "/api/files/{uuid}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apiBaseUrl}}/api/files/57390e92-0bfe-47e8-aa66-c3e2faa09ab5",
+							"host": [
+								"{{apiBaseUrl}}"
+							],
+							"path": [
+								"api",
+								"files",
+								"57390e92-0bfe-47e8-aa66-c3e2faa09ab5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{chowktiAuthToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "apiBaseUrl",
+			"value": "http://localhost:8000",
+			"type": "string",
+			"disabled": true
+		}	
+	]
+}
